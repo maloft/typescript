@@ -5,12 +5,20 @@ var Sejour = /** @class */ (function () {
         this._nom = _nom;
         this._prix = _prix;
     }
-    Sejour.prototype.getNom = function () {
-        return this._nom;
-    };
-    Sejour.prototype.getPrix = function () {
-        return this._prix;
-    };
+    Object.defineProperty(Sejour.prototype, "nom", {
+        get: function () {
+            return this._nom;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Sejour.prototype, "prix", {
+        get: function () {
+            return this._prix;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Sejour.prototype.toString = function () {
         return this._nom + " - " + this._prix;
     };
@@ -26,7 +34,7 @@ var SejourService = /** @class */ (function () {
     SejourService.prototype.findByName = function (nom) {
         for (var _i = 0, _a = this._sejours; _i < _a.length; _i++) {
             var currentSejour = _a[_i];
-            if (currentSejour.getNom() === nom) {
+            if (currentSejour.nom === nom) {
                 return currentSejour;
             }
         }
@@ -34,4 +42,4 @@ var SejourService = /** @class */ (function () {
     return SejourService;
 }());
 var service = new SejourService();
-console.log(service.findByName("paris"));
+console.log(service.findByName("casablanca"));

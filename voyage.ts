@@ -6,11 +6,11 @@ class Sejour {
         this._prix = _prix;
     }
 
-    getNom() : string {
+    get nom() {
         return this._nom;
     }
 
-    getPrix() : number {
+    get prix() {
         return this._prix;
     }
 
@@ -32,7 +32,7 @@ class SejourService {
     findByName(nom : string) : Sejour | void {
 
         for(let currentSejour of this._sejours) {
-            if (currentSejour.getNom() === nom) {
+            if (currentSejour.nom === nom) {
                 return currentSejour;
             }
         }
@@ -44,5 +44,5 @@ class SejourService {
 
 let service = new SejourService();
 
-console.log(service.findByName("rabat"));
+console.log(service.findByName("casablanca"));
 
